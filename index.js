@@ -2,7 +2,9 @@ const express = require('express');
 const path = require('path');
 const list = require('./Test JSON.json')
 const app = express();
+const cors = require('cors');
 
+app.use(cors());
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, './build')));
 
