@@ -7,7 +7,7 @@ import axios from 'axios';
 function App() {
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/getList").then(({ data }) => {
+    axios.get("https://alvin-react-app.herokuapp.com/api/getList").then(({ data }) => {
       console.log(data);
       if (data.ok)
         setMembers(data.members);
