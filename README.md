@@ -240,8 +240,8 @@ I also added the [React DatePicker](https://www.npmjs.com/package/react-datepick
 ## Running this on your machine
 1. Clone this repo
 2. Run 'npm install' to install dependencies.
-3. Run npm start from ftl-assignment to start the Express app
-4. Run npm run build from another terminal to start the React app
+3. Run 'npm start' to start the Express app
+4. Run 'npm run build' from another terminal to start the React app
 5. Visit http://localhost:5000/ to check out the app or http://localhost:5000/api/getList to view the JSON object.
 
 
