@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import UserList from './UserList.js';
+import axios from 'axios';
 
 function App() {
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/getList").then(({ data }) => {
+      console.log(data);
+      if (data.ok)
+        setMembers(data.members);
+    })
+  }, [])
+
+  const [members, setMembers] = useState([])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserList members={members} />
   );
 }
 
