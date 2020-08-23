@@ -19,11 +19,16 @@ function UserList(props) {
     };
     const [startDate, setStartDate] = useState(new Date());
 
-
     const listUsers = members.map(({ real_name, activity_periods }) =>
         <li><Button variant="link" onClick={() => handleShow(activity_periods, real_name)}>{real_name}</Button></li>
     );
-    //const newData = data.map({members: {id}});
+
+    const listStartActivity = activityPeriod.map(({ start_time }) =>
+        <tr>{`${start_time}`}</tr>
+    );
+    const listEndActivity = activityPeriod.map(({ end_time }) =>
+        <tr>{`${end_time}`}</tr>
+    );
 
     return (
         <div className="App" class="App-header">
@@ -40,15 +45,17 @@ function UserList(props) {
                     <Table responsive="sm">
                         <thead>
                             <tr>
-                                <th>Start Time</th>
-                                <th>End Time</th>
+                                <th scope="col">Start Time</th>
+                                <th scope="col">End Time</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>{activityPeriod.map(({ start_time }) => <p>{` ${start_time} `}</p>)}</td>
-                                <td>{activityPeriod.map(({ end_time }) => <p>{` ${end_time} `}</p>)}</td>
-                            </tr>
+                            <td>
+                                {listStartActivity}
+                            </td>
+                            <td>
+                                {listEndActivity}
+                            </td>
                         </tbody>
                     </Table>
 
